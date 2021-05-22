@@ -1,0 +1,40 @@
+{% extends "master.html" %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block content %}
+  <img src="https://source.unsplash.com/1600x400/?contact,phone" class="d-block w-100" alt="...">
+  <div class="container-fluid px-0">
+    {% comment %} <img src="/static/images/contact_us.jpg" class="d-block w-100" alt="..."> {% endcomment %}
+    {% comment %} <h1 style="position: absolute;top: 170px;left: 500px;">Contact Us</h1> {% endcomment %}
+    <h1 class="text-center">Contact Us</h1>
+    <div class="row">
+      <form action="/contact" method="POST">
+      {% csrf_token %}
+      <div class="col-md-4 offset-4">
+        <div class="mb-3">
+          <label for="name" class="form-label">Name</label>
+          <input type="name" class="form-control" id="name" name="name" placeholder="Enter your Name">
+        </div>
+        <div class="mb-3">
+          <label for="phone" class="form-label">Mobile No</label>
+          <input type="number" class="form-control" id="phone" name="phone" placeholder="Enter your Mobile No.">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Enter your Email ID">
+        </div>
+        <div class="mb-3">
+          <label for="desc" class="form-label">Message</label>
+          <textarea class="form-control" id="desc" name="desc" rows="3"></textarea>
+        </div>
+        <div class="mb-3 text-center">
+          <button type="submit" class="btn text-light bg-dark text-center" >Submit</button>
+          <button type="reset" class="btn btn-danger" >Reset</button>
+        </div>
+      </div>
+      </form>
+    </div>
+    
+  </div>
+{% endblock %}
